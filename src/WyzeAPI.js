@@ -25,6 +25,7 @@ module.exports = class WyzeAPI {
     this.appVersion = options.appVersion || '2.10.72';
     this.sc = '9f275790cab94a72bd206c8876429f3c';
     this.sv = '9d74946e652647e9b6c9d59326aef104';
+    this.userAgent = options.userAgent || "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Safari/605.1.15";
     this.appKey = '275965684684dbdaf29a0ed9';
     this.appSecret = '4deekof1ba311c5c33a9cb8e12787e8c';
 
@@ -120,7 +121,7 @@ module.exports = class WyzeAPI {
 
     const config = {
       baseURL: this.authBaseUrl,
-      headers: { 'x-api-key': this.authApiKey },
+      headers: { 'x-api-key': this.authApiKey, "User-Agent": this.userAgent },
     };
 
     return this._performRequest(url, data, config);
